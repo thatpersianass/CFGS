@@ -1,0 +1,23 @@
+<rss version="2.0">
+    <channel>
+        <title>Canal del módulo LND</title>
+
+        <link>https://www.angelmelchor.pro/indexrss.html</link>
+
+        <description>
+            En este canal se publican las noticias relacionadas con el módulo LND en el IES San Juan de la Rambla
+        </description>
+
+        <ttl>30</ttl>
+
+        <item>
+            <title>Tema 1: XML</title>
+            <link>https://www.angelmelchor.pro/srd.html</link>
+            <description>Prueba de canal</description>
+            <guid isPermaLink="false">1234-ABCD-240924-A</guid>
+
+        </item>
+
+    </channel>
+    
+</rss>

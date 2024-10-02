@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+    <contact id="1">
+        <nombre>Carlos Fernández</nombre>
+        <direccion>Calle del Sol 123, Colonia Centro, 28000, Ciudad de México</direccion>
+        <telefonos>+52 55 1234 5678</telefonos>
+    </contact>
+
+    <contact id=2>
+        <nombre>Mariana López</nombre>
+        <direccion>Avenida de la Paz 456, Barrio Norte, 41000, Buenos Aires, Argentina</direccion>
+        <telefonos>+54 11 9876 5432</telefonos>
+    </contact>
+
+    <contact id=3>
+        <nombre>Juan Herrera</nombre>
+        <direccion>Calle San Juan 789, Barrio Obrero, 08015, Barcelona, España</direccion>
+        <telefonos>+34 93 234 5678</telefonos>
+    </contact>
+
+    <contact id=4>
+        <nombre>Sofía García</nombre>
+        <direccion>Carrera 10 #15-20, Chapinero, 110231, Bogotá, Colombia</direccion>
+        <telefonos>+57 1 234 5678</telefonos>
+    </contact>
+
+    <contact id=5>
+        <nombre>Diego Martínez</nombre>
+        <direccion>Rua das Flores 321, Jardim Paulista, 01415-001, São Paulo, Brasil</direccion>
+        <telefonos>+55 11 91234 5678</telefonos>
+    </contact>
+
+</contacts>
