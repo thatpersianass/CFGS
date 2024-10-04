@@ -3,16 +3,26 @@
 # mayor o igual que -10. El programa deberá imprimir según el número leído el
 # patrón de figura que se muestra en el cuadro de abajo
 
-bucle = 1
 
-while bucle == 1:
-    choose = int(input("Inserte un número: "))
+# Solicitar un número entero al usuario
+numero = int(input("Introduce un número entero: "))
 
-    if choose >= 2 and choose <= 10:
-        print("placeholder")
+# Verificar si el número es válido
+if (2 <= numero <= 10) or (-10 <= numero <= -2):
+    # Trabajamos con el valor absoluto para construir el patrón
+    num = abs(numero)
     
-    elif choose <= -2 and choose >= -10:
-        print("placeholder")
-        
-    else:
-        print("Inserte una número válido....")
+    # Si el número es positivo
+    if numero > 0:
+        # Generamos el patrón normal
+        for i in range(num, 0, -1):
+            print("*" * i + " " * (2 * (num - i)) + "*" * i)
+    
+    # Si el número es negativo
+    elif numero < 0:
+        # Generamos el patrón invertido
+        for i in range(1, num + 1):
+            print("*" * i + " " * (2 * (num - i)) + "*" * i)
+else:
+    # Si el número no es válido, se muestra un mensaje de error
+    print("Número inválido. Debe ser entre 2 y 10, o entre -2 y -10.")
