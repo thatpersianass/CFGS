@@ -22,5 +22,6 @@
     "editor.fontWeight": "normal",
     "editor.fontSize": 14,
     "editor.letterSpacing": 0,
-    "editor.fontFamily": "JetBrainsMono"
+    "editor.fontFamily": "JetBrainsMono",
+    "C_Cpp.errorSquiggles": "disabled"
 }
