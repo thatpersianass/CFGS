@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#cabecera {
+    height: 10vh;
+    background-color: orange;
+}
+
+#nav {
+    height: 5vh;
+    background-color: lightblue;
+}
+
+#principal {
+    display: flex;
+    align-items: stretch;
+    height: 80vh;
+}
+
+#contenido {
+    width: 80vw;
+    background-color: lightcyan;
+}
+
+#aside {
+    width: 20vw;
+    background-color: pink;
+}
+
+#pie {
+    height: 5vh;
+    background-color: greenyellow;
+}
