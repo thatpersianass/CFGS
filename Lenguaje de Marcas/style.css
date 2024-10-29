@@ -24,6 +24,11 @@
     background-color: lightcyan;
 }
 
+#medio {
+    background-color: lightpink;
+    width: 30vw;
+}
+
 #aside {
     width: 20vw;
     background-color: pink;
