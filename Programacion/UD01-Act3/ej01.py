@@ -9,21 +9,22 @@
 # Lista = [4, 6, 4, 5, 3, 3, 4, 3, 4, 1, 6, 6], n = 2
 # La salida debe ser [4, 3, 6] 
 
-try:
-    lista = []
-    while True:
-        opt = input('Introduce los números de la lista, o escriba "fin" para terminar de escribir ->     ').lower()         # Se le pide al usuario rellenar la lista
-        if opt == 'fin':                                                                                                    # Si la selección del usuario es "fin", se cierra el bucle
-            break
+
+lista = []
+while True:
+    opt = input('Introduce los números de la lista, o escriba "fin" para terminar de escribir ->     ').lower()         # Se le pide al usuario rellenar la lista
+    if opt == 'fin':                                                                                                    # Si la selección del usuario es "fin", se cierra el bucle
+        break
         
-        try:
-            lista.append(int(opt))                                                                                              # Si la selección del usuario es un entero, se añade a la lista
-        except ValueError:
-            print('Por favor, introduce un número entero válido.')                                                              # Si la selección del usuario No es un entero, se repite el bucle
-    
+    try:
+        lista.append(int(opt))                                                                                              # Si la selección del usuario es un entero, se añade a la lista
+    except ValueError:
+        print('Por favor, introduce un número entero válido.')                                                              # Si la selección del usuario No es un entero, se repite el bucle
+
+try:
     n = int(input('Inserte un número entero ->   '))
 
-except:
+except ValueError:
     print('Selección inválida...')                                                                                          # Gestor de errores
 
 else:
@@ -36,4 +37,8 @@ else:
             if cuenta > n:
                 lista_completa.append(elto)
 
-print(f'Los números que se repiten más veces que {n} son {lista_completa}')
+if lista_completa:
+    print(f'Los números que se repiten más veces que {n} son {lista_completa}')
+
+else:
+    print(f'No hay números repetidos más que {n}')
