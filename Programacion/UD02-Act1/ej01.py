@@ -17,27 +17,29 @@ while True:
         break
         
     try:
-        lista.append(int(opt))                                                                                              # Si la selección del usuario es un entero, se añade a la lista
+        lista.append(int(opt))                                                                                          # Si la selección del usuario es un entero, se añade a la lista
     except ValueError:
-        print('Por favor, introduce un número entero válido.')                                                              # Si la selección del usuario No es un entero, se repite el bucle
+        print('Por favor, introduce un número entero válido.')                                                          # Si la selección del usuario No es un entero, se repite el bucle
 
 try:
     n = int(input('Inserte un número entero ->   '))
 
 except ValueError:
-    print('Selección inválida...')                                                                                          # Gestor de errores
+    print('Selección inválida...')                                                                                      # Gestor de errores
 
 else:
     lista_completa = []
 
     for i in range(len(lista)):
         elto = lista[i]
+
         if elto not in lista_completa:
             cuenta = lista.count(elto)
+
             if cuenta > n:
                 lista_completa.append(elto)
 
-if lista_completa:
+if lista_completa:                                                                                                      # Si la lista completa no está vacía, se muestran los números repetidos más veces que n
     print(f'Los números que se repiten más veces que {n} son {lista_completa}')
 
 else:
