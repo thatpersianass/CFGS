@@ -38,7 +38,7 @@ while True:
 
     for k in range(len(tupla[1])):
         if tupla[1][k] == 'NO':
-            continue
+            continue 
     
     alumnos.append(tupla)
 
