@@ -1,4 +1,4 @@
-# Desarrollo de Aplicaciones Multiplataforma - CFGS
+# Proyecto de Gestión de Inventarios - CFGS
 
 ## Descripción del Proyecto
 
@@ -66,9 +66,99 @@ Para instalar y ejecutar este proyecto en tu máquina local, sigue los siguiente
 
 1. **Clonar el repositorio**: Para obtener el código fuente en tu máquina local, ejecuta el siguiente comando en tu terminal:
 
-   ```bash
+   ```
    git clone https://github.com/thatpersianass/CFGS.git
+Navegar al directorio del proyecto: Cambia al directorio del proyecto con el siguiente comando:
 
+
+
+cd CFGS
+Instalar dependencias (si existieran): Este proyecto no depende de ninguna librería externa por el momento. Si en el futuro se requieren dependencias, puedes instalarlas mediante:
+
+
+
+pip install -r requirements.txt
+Ejecutar el proyecto: Para ejecutar el sistema de gestión de inventarios, utiliza el siguiente comando:
+
+
+
+python3 main.py
+Estructura del Proyecto
+La estructura de archivos del proyecto es la siguiente:
+
+
+
+CFGS/
+├── README.md             # Este archivo con la documentación
+├── main.py               # Archivo principal del proyecto
+├── productos.py          # Definición de las estructuras de productos
+├── empresa01.py          # Datos de productos de la empresa 1
+├── empresa02.py          # Datos de productos de la empresa 2
+└── requirements.txt      # Listado de dependencias (si las hubiera)
+Descripción de los Archivos:
+main.py: Contiene la lógica principal de la aplicación, incluida la gestión de productos y la interacción con el usuario.
+productos.py: Define las estructuras de datos para los productos, como el código, la cantidad, el precio y la categoría.
+empresa01.py / empresa02.py: Archivos con datos ficticios de productos de empresas externas.
+requirements.txt: Archivo que listaría las dependencias necesarias si en algún momento se agregan.
+Reglas y Normas del Proyecto
+Para asegurar la calidad y funcionalidad del sistema, es importante seguir estas reglas y normas:
+
+1. Generación de Códigos Únicos:
+Los productos tienen códigos únicos que se generan combinando la primera letra de la categoría del producto y un número secuencial de 4 dígitos (por ejemplo, f0001 para el primer producto de la categoría frío).
+Si un código ya existe, la aplicación debe permitir modificar el producto sin pedir la descripción nuevamente.
+2. Validación de Datos:
+Los códigos de los productos deben ser únicos.
+Las cantidades deben ser números enteros.
+Los precios deben tener dos decimales.
+3. Interacción con el Usuario:
+La interfaz de usuario es a través de la terminal de comandos, donde el sistema solicita la entrada de datos y muestra mensajes de error o confirmación según corresponda.
+Flujo de Trabajo
+1. Clonación del Repositorio:
+Para comenzar a trabajar en el proyecto, clona el repositorio:
+
+
+
+git clone https://github.com/thatpersianass/CFGS.git
+2. Desarrollo:
+Crea una nueva rama para realizar cambios o agregar funcionalidades:
+
+
+
+git checkout -b nueva-funcionalidad
+3. Commit:
+Realiza los cambios y realiza un commit con un mensaje claro sobre lo que has modificado:
+
+
+
+git add .
+git commit -m "Descripción de los cambios realizados"
+4. Push:
+Sube los cambios a GitHub:
+
+
+
+git push origin nueva-funcionalidad
+5. Pull Request:
+Abre un pull request en GitHub para fusionar tu rama con la rama principal (main).
+
+Uso de la Aplicación
+Al ejecutar el archivo main.py, la aplicación interactúa con el usuario a través de la terminal. El usuario puede:
+
+Agregar productos al inventario ingresando un código de producto único, su descripción, cantidad y precio.
+Modificar productos existentes proporcionando un código de producto ya existente y eligiendo si desea modificar la cantidad o el precio.
+Visualizar el inventario de productos disponibles.
+Contribuciones
+Las contribuciones son bienvenidas. Si deseas mejorar este proyecto o añadir nuevas funcionalidades, sigue estos pasos:
+
+Haz un fork del repositorio.
+Crea una nueva rama para la característica o corrección que deseas agregar.
+Realiza los cambios y haz commit de esos cambios.
+Abre un pull request detallando los cambios realizados.
+Licencia
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.
 
-Derechos de autor (c) 2024, Persii - Marcos J. Todos los derechos reservados.
+Aviso de Derechos de Autor
+Derechos de autor (c) 2024, Persii - Marcos J. Todos los derechos reservados
+---
+
+Este archivo de `README.md` proporciona una descripción clara del proyecto, las instrucciones para su instalación, el flujo de trabajo, y también incluye el aviso de derechos de autor como solicitaste.
