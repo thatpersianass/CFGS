@@ -69,5 +69,6 @@ Para instalar y ejecutar este proyecto en tu máquina local, sigue los siguiente
    ```bash
    git clone https://github.com/thatpersianass/CFGS.git
 
+Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.
 
-   Derechos de autor (c) 2024, Persii - Marcos J. Todos los derechos reservados.
+Derechos de autor (c) 2024, Persii - Marcos J. Todos los derechos reservados.
