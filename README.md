@@ -1,8 +1,8 @@
-# 1ero - Desarrollo de Aplicaciones Multiplataforma - CFGS
+# Proyecto de Gestión de Inventarios - Desarrollo de Aplicaciones Multiplataforma, Primer Año
 
 ## Descripción del Proyecto
 
-Este proyecto es una aplicación de gestión de inventarios, diseñada para administrar productos dentro de una tienda o empresa. La aplicación permite realizar operaciones como agregar, modificar y eliminar productos del inventario, todo a través de una interfaz de línea de comandos (CLI). Está desarrollado como parte de un ciclo formativo de grado superior en desarrollo de aplicaciones multiplataforma (CFGS).
+Este proyecto es una aplicación de gestión de inventarios, diseñada para administrar productos dentro de una tienda o empresa. La aplicación permite realizar operaciones como agregar, modificar y eliminar productos del inventario, todo a través de una interfaz de línea de comandos (CLI). Está desarrollado como parte de un ciclo formativo de grado superior en **Desarrollo de aplicaciones multiplataforma**, específicamente del **primer año**.
 
 Los productos se pueden categorizar en varias categorías como "frío", "verduras", "lácteos", etc. Cada producto tiene un código único generado de forma automática que permite su identificación en el inventario. Además, la aplicación ofrece la posibilidad de gestionar inventarios de productos proporcionados por diferentes empresas externas.
 
@@ -22,97 +22,69 @@ Los productos se pueden categorizar en varias categorías como "frío", "verdura
 2. [Tecnologías Utilizadas](#tecnologías-utilizadas)
 3. [Instalación](#instalación)
 4. [Estructura del Proyecto](#estructura-del-proyecto)
-5. [Reglas y Normas del Proyecto](#reglas-y-normas-del-proyecto)
-6. [Flujo de Trabajo](#flujo-de-trabajo)
-7. [Uso de la Aplicación](#uso-de-la-aplicación)
-8. [Contribuciones](#contribuciones)
-9. [Licencia](#licencia)
-10. [Aviso de Derechos de Autor](#aviso-de-derechos-de-autor)
+5. [Licencia](#licencia)
+6. [Aviso de Derechos de Autor](#aviso-de-derechos-de-autor)
 
 ---
 
 ## Objetivos del Proyecto
 
-El objetivo principal del proyecto es desarrollar una herramienta eficaz para la gestión de inventarios, con funcionalidades que permitan a los usuarios añadir productos, modificarlos y gestionar el inventario de manera eficiente. Este sistema de gestión de inventarios también está diseñado para ser fácil de usar, con un enfoque en la simplicidad y la efectividad.
+El objetivo principal de este proyecto es diseñar y desarrollar una aplicación que permita la gestión de inventarios de productos dentro de una tienda o empresa. Los productos deben poder ser organizados por categorías, y la aplicación debe ser capaz de manejar datos como códigos, descripciones, precios y cantidades de productos.
 
-### Objetivos específicos:
-- **Generación de códigos de productos únicos**: El código de cada producto se genera automáticamente, combinando la primera letra de la categoría del producto y un número secuencial.
-- **Modificación de productos**: Si un código ya existe, se permite modificar la cantidad o el precio sin tener que ingresar de nuevo la descripción del producto.
-- **Interacción sencilla**: A través de la interfaz de línea de comandos (CLI), el sistema interactúa de forma sencilla con el usuario para gestionar el inventario.
+Además, la aplicación deberá ofrecer una interfaz sencilla en la que el usuario pueda interactuar fácilmente con el sistema, permitiendo realizar las acciones de administración necesarias, como agregar o modificar productos, asegurando siempre la validez de los datos introducidos.
 
 ---
 
 ## Tecnologías Utilizadas
 
-Este proyecto se ha desarrollado utilizando las siguientes tecnologías:
-
-- **Python 3.x**: Lenguaje de programación principal utilizado para implementar la lógica de la aplicación.
-- **Git**: Sistema de control de versiones utilizado para gestionar el código fuente y colaborar en el proyecto.
-- **GitHub**: Plataforma de alojamiento de código y colaboración remota.
-- **Visual Studio Code (VSCode)**: Editor de código utilizado para escribir y desarrollar el proyecto.
-- **Terminal/Consola de Comandos**: La interacción con el sistema se realiza a través de la terminal.
+- **Lenguaje de programación**: Python
+- **IDE utilizado**: Visual Studio Code
+- **Versiones**: 
+  - Python 3.x
+  - Sistema operativo: Compatible con Windows, Linux y macOS
 
 ---
 
 ## Instalación
 
-Para instalar y ejecutar este proyecto en tu máquina local, sigue los siguientes pasos:
+Para instalar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
 
-### Requisitos previos
-- **Python 3.x**: Verifica si Python está instalado ejecutando `python --version` o `python3 --version` en la terminal. Si no está instalado, puedes descargarlo desde [python.org](https://www.python.org/downloads/).
-- **Git**: Si no tienes Git instalado, puedes obtenerlo desde [git-scm.com](https://git-scm.com/).
+1. **Clona el repositorio**:
 
-### Pasos de Instalación
+   Si tienes acceso a este repositorio privado, clónalo usando el siguiente comando:
 
-1. **Clonar el repositorio**: Para obtener el código fuente en tu máquina local, ejecuta el siguiente comando en tu terminal:
-
-   ```
+   ```bash
    git clone https://github.com/thatpersianass/CFGS.git
-Navegar al directorio del proyecto: Cambia al directorio del proyecto con el siguiente comando:
+Instala las dependencias:
 
-cd CFGS
-Instalar dependencias (si existieran): Este proyecto no depende de ninguna librería externa por el momento. Si en el futuro se requieren dependencias, puedes instalarlas mediante:
+Si el proyecto requiere librerías externas, instálalas utilizando pip (aunque en este caso, este proyecto no tiene dependencias externas específicas):
 
+bash
+Copiar código
 pip install -r requirements.txt
+Ejecuta el programa:
 
-Ejecutar el proyecto: Para ejecutar el sistema de gestión de inventarios, utiliza el siguiente comando:
-python3 main.py
+Para ejecutar el programa, solo necesitas iniciar el script principal del proyecto en tu terminal:
 
-git clone https://github.com/thatpersianass/CFGS.git
-2. Desarrollo:
-Crea una nueva rama para realizar cambios o agregar funcionalidades:
+bash
+Copiar código
+python main.py
+Estructura del Proyecto
+La estructura de carpetas del proyecto es la siguiente:
 
-git checkout -b nueva-funcionalidad
-3. Commit:
-Realiza los cambios y realiza un commit con un mensaje claro sobre lo que has modificado:
-
-git add .
-git commit -m "Descripción de los cambios realizados"
-4. Push:
-Sube los cambios a GitHub:
-
-git push origin nueva-funcionalidad
-5. Pull Request:
-Abre un pull request en GitHub para fusionar tu rama con la rama principal (main).
-
-Uso de la Aplicación
-Al ejecutar el archivo main.py, la aplicación interactúa con el usuario a través de la terminal. El usuario puede:
-
-Agregar productos al inventario ingresando un código de producto único, su descripción, cantidad y precio.
-Modificar productos existentes proporcionando un código de producto ya existente y eligiendo si desea modificar la cantidad o el precio.
-Visualizar el inventario de productos disponibles.
-Contribuciones
-Las contribuciones son bienvenidas. Si deseas mejorar este proyecto o añadir nuevas funcionalidades, sigue estos pasos:
-
-Haz un fork del repositorio.
-Crea una nueva rama para la característica o corrección que deseas agregar.
-Realiza los cambios y haz commit de esos cambios.
-Abre un pull request detallando los cambios realizados.
+bash
+Copiar código
+CFGS/
+│
+├── main.py               # Archivo principal que ejecuta el programa
+├── productos.py          # Contiene las estructuras de datos para los productos
+├── empresa.py            # Información sobre los productos de diferentes empresas
+├── README.md             # Documentación del proyecto
+└── LICENSE               # Archivo de licencia
 Licencia
-Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.
+Este proyecto está bajo la Licencia MIT, lo que permite su uso, modificación y distribución bajo ciertas condiciones. Sin embargo, dado que este repositorio es privado, no se aceptan contribuciones externas.
 
 Aviso de Derechos de Autor
-Derechos de autor (c) 2024, Persii - Marcos J. Todos los derechos reservados
----
+Copyright (c) 2024 Persii - Marcos J.
 
-Este archivo de `README.md` proporciona una descripción clara del proyecto, las instrucciones para su instalación, el flujo de trabajo, y también incluye el aviso de derechos de autor como solicitaste.
+Este software es de propiedad del autor y no está permitido su uso fuera del contexto educativo del ciclo formativo de "Desarrollo de aplicaciones multiplataforma, primer año". No se permite la distribución ni la modificación sin el permiso explícito del autor.
