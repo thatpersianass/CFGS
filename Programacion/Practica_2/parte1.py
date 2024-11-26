@@ -13,96 +13,114 @@
 # desc es un string que representa la descripción del producto, ctdad es número flotante o entero que representa la existencia actual del producto,
 # precio es un número float que representa el precio de venta del producto
 
-productos = {}
+productos = {
+    'frio': {
+        'f0001': ['muslos pollo', 20, 8.5],
+        'f0002': ['carne cerdo', 20, 5.6]
+    },
+    'verduras': {
+        'v0001': ['tomates', 30, 2.5],
+        'v0002': ['cebollas', 20, 2.2]
+    },
+    'bazar': {
+        'b0001': ['pala basura', 10, 3.75],
+        'b0002': ['lejia', 10, 1.85]
+    },
+    'lacteos': {
+        'l0001': ['leche entera', 50, 1.15],
+        'l0002': ['leche sin lactosa', 20, 1.5]
+    }
+}
 
-productos_validos = ['frío','verduras','carnes','panadería','bazar','despensa','wines','lácteos']
+empresa01 = [
+    ('verduras', 'tomates', 20, 2.15),
+    ('frío', 'muslos pollo', 30, 8.65),
+    ('lacteos', 'leche semidesnatada', 20, 1.4),
+    ('wino', 'vino tinto monje', 10, 13.75),
+    ('wino', 'vino dulce', 5, 12.15)
+]
+
+empresa02 = [
+    ('pepinos', 20, 1.95),
+    ('pala', 5, 3.80),
+    ('leche entera', 10, 1.90),
+    ('pan mediano', 20, 0.5),
+    ('vino blanco', 5, 14.25)
+]
+
+productos_validos = ['frio', 'verduras', 'carnes', 'panadería', 'bazar', 'despensa', 'wines', 'lacteos']
 
 while True:
-    codigo = None
-    modificar = False
-
     print('\nBienvenido, introduce el dato solicitado o presiona ENTER para salir del programa.')
-
-    while True:
-        tip_producto = input(f'Introduce el tipo de producto\nTipos disponibles: {', '.join(productos_validos)}\n-->   ')
-        if tip_producto == '':
-            print(f'Saliste del programa...\n')
-            break
-
-        if tip_producto not in productos_validos:
-            print(f'El tipo de producto no es válido, los tipos válidos son:\n{productos_validos}\n')
-        else:
-            break
-
+    
+    tip_producto = input(f'Introduce el tipo de producto\nTipos disponibles: {", ".join(productos_validos)}\n-->   ').lower()
+    
     if tip_producto == '':
+        print("Saliste del programa...\n")
         break
 
-    while True:
-        num_codigo = input('Introduce el numero del código de producto (Máxmimo 4 caracteres)\n-->   ')
-        if 0 < len(num_codigo) <= 4 and num_codigo.isdigit():
-            if productos:
-                codigo = tip_producto[0].upper() + num_codigo
-                if codigo not in productos[tip_producto]:
-                    break
-                else:
-                    i = input('Código existente... Desea modificar los datos de este producto?\n(1)SI\n(2)NO\n-->   ')
-                    if i == 1:
-                        modificar = True
-                        break
-                    if i != 1 or i != 2:
-                        print('Selección inválida, se toma como un NO...')
+    if tip_producto not in productos_validos:
+        print(f"El tipo de producto no es válido. Tipos válidos son: {', '.join(productos_validos)}\n")
+        continue
 
+    while True:
+        num_codigo = input(f"Introduce el código del producto (4 dígitos): ")
+        if len(num_codigo) == 4 and num_codigo.isdigit():
+            codigo = f"{tip_producto[0]}{num_codigo}"
+            if codigo not in productos[tip_producto]:
+                break
             else:
-                codigo = tip_producto[0].upper() + num_codigo
+                print(f"El código {codigo} ya existe. ¿Quieres modificarlo?")
+                opcion = input("1. Modificar cantidad\n2. Modificar precio\n3. No hacer cambios\n--> ")
+
+                if opcion == '1':
+                    cantidad_nueva = int(input(f"Ingrese la cantidad adicional para el producto '{productos[tip_producto][codigo][0]}': "))
+                    productos[tip_producto][codigo][1] += cantidad_nueva
+                    print(f"Cantidad actualizada. Nueva cantidad: {productos[tip_producto][codigo][1]}")
+
+                elif opcion == '2':
+                    precio_nuevo = float(input(f"Ingrese el nuevo precio para el producto '{productos[tip_producto][codigo][0]}': "))
+                    precio_nuevo = round(precio_nuevo, 2)
+                    productos[tip_producto][codigo][2] = precio_nuevo
+                    print(f"Precio actualizado. Nuevo precio: {productos[tip_producto][codigo][2]}")
+
+                elif opcion == '3':
+                    print("No se realizaron cambios.")
                 break
         else:
-            print('El código introducido no es válido, tienen que ser números enteros y tener una longitud de máximo 4 digitos...\n')
+            print("El código debe tener exactamente 4 dígitos.")
 
-    if modificar != True:
-        while True:
-            descripcion = input('Introduce la descripción del producto\n-->   ')
-            if len(descripcion) == 0:
-                print('Se debe introducir la descripcion obligatoriamente...\n')
-            else:
-                break
+    if codigo not in productos[tip_producto]:
+        descripcion = input(f"Introduce la descripción del producto: ").lower()
 
         while True:
             try:
-                cantidad = float(input('Introduce la cantidad del producto\n-->   '))
-            except ValueError:
-                print('La cantidad tiene que ser un número decimal...\n')
-            else:
+                cantidad = int(input(f"Introduce la cantidad del producto (solo número entero): "))
                 break
+            except ValueError:
+                print("La cantidad debe ser un número entero.")
 
         while True:
             try:
-                precio = float(input('Introduce el precio del producto\n-->   '))
-            except ValueError:
-                print('El precio tiene que ser un número decimal...\n')
-            else:
+                precio = float(input(f"Introduce el precio del producto: "))
+                precio = round(precio, 2)
                 break
-
-    if modificar:
-        while True:
-            try:
-                cantidad = float(input(f'Introduzca cuanto le quiere SUMAR a la cantidad actual de producto ({productos[tip_producto][codigo][1]}) SUMAR 0 SI NO SE DESEA CAMBIAR'))
             except ValueError:
-                print('Tiene que ser un número decimal....')
-            else:
-                if cantidad != 0:
-                    productos[tip_producto][codigo][1] += cantidad
-                    break
-                else:
-                    print('Saltando paso...\n')
-                    break
+                print("El precio debe ser un número decimal.")
 
-        while True:
-            try
-    if tip_producto not in productos:
-        productos[tip_producto] = {}
+        productos[tip_producto][codigo] = [descripcion, cantidad, round(precio, 2)]
+        print(f"Producto '{descripcion}' añadido con el código {codigo}.")
 
-    productos[tip_producto][codigo] = [descripcion, cantidad, precio]
+    print("\nProductos almacenados:")
+    for categoria, productos_categoria in productos.items():
+        print(f"\n{categoria.capitalize()}:")
+        for codigo, (descripcion, cantidad, precio) in productos_categoria.items():
+            print(f"  {codigo}: {descripcion} - {cantidad} unidades - {precio}€")
 
-    print(f"\nEl producto {descripcion} ha sido añadido a la categoría {tip_producto}, con código {codigo}, con precio {precio}€ y {cantidad} existencias")
+    print("\nProductos de la empresa 01:")
+    for categoria, descripcion, cantidad, precio in empresa01:
+        print(f"{categoria.capitalize()}: {descripcion} - {cantidad} unidades - {precio}€")
 
-print(productos)
+    print("\nProductos de la empresa 02:")
+    for descripcion, cantidad, precio in empresa02:
+        print(f"{descripcion} - {cantidad} unidades - {precio}€")
