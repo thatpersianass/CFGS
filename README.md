@@ -1,4 +1,4 @@
-# Proyecto de Gestión de Inventarios - CFGS
+# 1ero - Desarrollo de Aplicaciones Multiplataforma - CFGS
 
 ## Descripción del Proyecto
 
