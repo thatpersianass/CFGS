@@ -1,0 +1,32 @@
+B8:
+	- Puso los correos en tablas aparte, pero colocó en la tabla CLIENTES el atributo correo
+	
+	- Puso Telefono en OFICINA en varchar(), además de varios otros
+
+	- Entre la tabla Libro y Técnico no puso la tabla perteneciente a la relación N:M
+
+	- La tabla OFICINA no tiene el DNI comercial a pesar de ser 1:N
+
+	- La tabla Edita(Tecnico_Libro) tiene el atributo Fecha salida
+
+	- En LineaVenta cantidad no tiene la opcion NotNull, al igual que en Técnico "Domicilio"
+
+	- Autor está relacionado con Técnico en lugar de con Libro
+
+
+	8 errores son -4 puntos, partiendo de 10 sería un 6 de Nota.
+
+
+C1:
+	- Falta el atributo modelo en VEH_EMPRESA
+
+	- Faltan el atributo peso en grúas y km en coches
+
+	- Puso Telefono de conductor como una tabla aparte
+
+	- Puso Telefono de taller como una tabla aparte
+
+	- No colocó las tablas respectivas de socio, estas siendo 4 (-2 pts)
+
+
+	9 errores son -4,75 puntos, partiendo de 10 sería un 5,25 de Nota.

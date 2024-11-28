@@ -1,40 +1,31 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-#cabecera {
-    height: 10vh;
-    background-color: orange;
-}
-
-#nav {
-    height: 5vh;
-    background-color: lightblue;
-}
-
-#principal {
+.contenedor {
+    width: 400px;
+    border: solid 4px;
     display: flex;
-    align-items: stretch;
-    height: 80vh;
 }
 
-#contenido {
-    width: 80vw;
-    background-color: lightcyan;
+.contenedor>div {
+    width: 50px;
+    height: 50px;
+    background-color: cyan;
+    margin: 10px;
+    font-size: 3em;
 }
 
-#medio {
-    background-color: lightpink;
-    width: 30vw;
+#s1 {
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-#aside {
-    width: 20vw;
-    background-color: pink;
+#s2 {
+    flex-direction: column;
 }
 
-#pie {
-    height: 5vh;
-    background-color: greenyellow;
+#s3 {
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+#s4 {
+    flex-direction: column-reverse;
 }
