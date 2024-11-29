@@ -24,6 +24,12 @@ h1 {
     font-size: 3rem;
 }
 
+@media (orientation:portrait){
+    .cuadrao {
+        background-color: lightblue;
+    }
+}
+
 .grandote {
     flex-grow: 2;
 }
@@ -62,18 +68,4 @@ h1 {
     margin: 0px;
     padding: 0px;
     text-align: center;
-}
-
-@media (orientation:portrait){
-    .cuadrao, .tdah div {
-        background-color: lightblue;
-    }
-
-    .numeros, .tdah {
-        flex-direction: column;
-    }
-
-    .tdah div {
-        height: 100px;
-    }
 }
