@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.principal {
+    size: 100vw;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: white;
+    padding: 2em;
+}
+
+.principal > div {
+    margin: 2em;
+}
+
+h2 {
+    text-align: center;
+}
+
+.container {
+    background: #a8dadc;
+    color: #1d3557;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+.mensaje {
+    width: 66%;
+    max-width: 66%;
+    color: #1d3557;
+    flex: 1;
+    max-width: 66%;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu {
+    min-width: 100px;
+}
+
+textarea, input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #457b9d;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.mensaje>textarea {
+    width: 100%;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background-color: #457b9d;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #1d3557;
+}
+
+@media (max-width: 1000px) {
+    .principal {
+        flex-direction: column;
+        gap: 0.5em;
+        padding: 0.5em;
+    }
+
+    .principal > div {
+        margin: 0px;
+    }
+
+    .menu {
+        order: -1;
+        width: 100%;
+        margin: 0.5em;
+        display: flex;
+    }
+
+    .menu h2 {
+        display: none;
+    }
+
+    .menu button {
+        display: inline-block;
+        margin: 2px 1px;
+        width: auto;
+        color: #33ff33;
+    }
+
+    .mensaje {
+        width: 100vw;
+        margin: 0;
+    }
+}
