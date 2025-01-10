@@ -1,27 +1,7 @@
-# La idea es realizar un programa en Python que defina la función
-# puedecomer( pieza1, pieza2 ) y que retorna un valor booleano. Este valor
-# retornado será True si la pieza1 puede comer a la pieza2 y False en caso contrario.
-
-# Definimos los parámetros de la siguiente forma.
-# pieza1 y pieza2 son tuplas que tienen el siguiente formato: ( figura, posición )
-
-# Donde
-
-# • figura: es un string que indica una pieza del ajedrez. Los valores que puede
-# tomar son los siguientes: peón, torre, caballo, alfil, reina y rey
-
-# • posición: es una tupla con dos elementos que indican la posición de la pieza en
-# el tablero de ajedrez ( fila, columna ) donde
-
-# • fila es un valor entre 1 y 8
-
-# • columna una letra entre A y H
-
 def es_posicion_valida(posicion):
     '''
     Verifica que la fila esté entre 1 y 8, y la columna entre A y H.
     '''
-    
     if len(posicion) != 2:
         return False
     
@@ -56,7 +36,7 @@ def puedecomer(pieza1, pieza2, color='blancas'):
             if fila1 < fila2:  # Peón blanco avanza hacia adelante
                 return abs(fila2 - fila1) == 1 and abs(col2 - col1) == 1
         elif color == 'negras':
-            if fila1 > fila2:  # Peón negro avanza hacia adelante, contrario del peón blanco
+            if fila1 > fila2:  # Peón negro avanza hacia adelante
                 return abs(fila2 - fila1) == 1 and abs(col2 - col1) == 1
     elif figura1 == 'torre':
         return fila1 == fila2 or col1 == col2
@@ -69,7 +49,7 @@ def puedecomer(pieza1, pieza2, color='blancas'):
     elif figura1 == 'rey':
         return max(abs(fila1 - fila2), abs(col1 - col2)) == 1
     return False
-    
+
 def solicitar_pieza():
     '''
     Solicita una pieza y su posición al usuario y valida la entrada.
@@ -77,7 +57,7 @@ def solicitar_pieza():
     figuras_validas = ['peón', 'torre', 'caballo', 'alfil', 'reina', 'rey']
 
     while True:
-        entrada = input("Introduce la pieza y su posición (figura,fila,columna): ") # Un ejemplo de la entrada sería: torre,7,C
+        entrada = input("Introduce la pieza y su posición (figura,fila,columna): ")
         try:
             figura, fila, columna = entrada.split(',')
             figura = figura.strip().lower()
@@ -89,7 +69,29 @@ def solicitar_pieza():
             else:
                 print(f"Entrada inválida. Reintenta.\nPiezas válidas: {figuras_validas}")
         except ValueError:
-            print("Por favor ingrese los datos con el formato correcto.\n")
+            print("Formato incorrecto. Asegúrate de separar los datos con comas y usar el formato correcto.")
 
 def programa():
-    pass
+    '''
+    Programa principal para probar la función puedecomer.
+    '''
+    while True:
+        print("Introduce los datos de las piezas:")
+        pieza1 = solicitar_pieza()
+        pieza2 = solicitar_pieza()
+
+        color = input("Introduce el color de la pieza 1 (blancas/negras, por defecto blancas): ").strip().lower()
+        if color not in ['blancas', 'negras', '']:
+            print("Color inválido. Usando 'blancas' por defecto.")
+            color = 'blancas'
+
+        resultado = puedecomer(pieza1, pieza2, color or 'blancas')
+        print(f"La pieza {pieza1[0]} en {pieza1[1]} {'puede' if resultado else 'no puede'} comer a la pieza {pieza2[0]} en {pieza2[1]}.")
+
+        continuar = input("¿Quieres probar con otras piezas? (sí/no): ").strip().lower()
+        if continuar == 'no':
+            print("Gracias por jugar.")
+            break
+
+# Ejecutar el programa
+programa() 
