@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Nombre de usuario
+username=${1:-$(read -p "Nombre del usuario: " u && echo $u)}
+[ -z "$username" ] && {
+    echo "El nombre no puede estar vacío."
+    exit 1
+}
+
+# Contraseña
+read -s -p "Contraseña: " password
+echo
+[ -z "$password" ] && {
+    echo "La contraseña no puede estar vacía."
+    exit 1
+}
+
+# Grupo
+read -p "Grupo: " group
+[ -z "$group" ] && {
+    echo "El grupo no puede estar vacío."
+    exit 1
+}
+getent group "$group" > /dev/null || groupadd "$group"
+
+# Carpeta del usuario
+read -p "Carpeta (default: /home/$username): " userdir
+userdir=${userdir:-/home/$username}
+
+# Shell por defecto
+read -p "Shell (default: /bin/bash): " usershell
+usershell=${usershell:-/bin/bash}
+
+# Crear usuario
+useradd -m -d "$userdir" -s "$usershell" -g "$group" "$username" || {
+    echo "Error al crear el usuario."
+    exit 1
+}
+
+echo "$username:$password" | chpasswd || {
+    echo "Error al establecer la contraseña."
+    exit 1
+}
+
+# Configurar permisos
+chown "$username:$group" "$userdir"
+
+# Mensaje de éxito
+echo "Usuario '$username' creado."
+echo "Carpeta: $userdir"
+echo "Shell: $usershell"
