@@ -113,3 +113,23 @@ SELECT  P.nombre AS Nombre_Producto
 FROM  producto P
 LEFT JOIN  detalle_pedido DP ON P.codigo_producto = DP.codigo_producto
 WHERE  DP.codigo_producto IS NULL;
+
+-- 19. Inserta al nuevo empleado David Lorca Méndez (dlorca@jardineria.com), con extensión 1135 de la oficina SCT-ES, y su puesto es director general.
+/* INSERT INTO oficina (codigo_oficina, ciudad, pais, region, codigo_postal, telefono, linea_direccion1, linea_direccion2)
+VALUES ('SCT-ES', 'Mallorca', 'España', 'Europa', 38410, 78787576,'Cami Vell de la Victoria',NULL); -- Es necesario agregar la oficina SCT-ES, ya que si no existe en la tabla oficina da un error con la foreign key
+
+INSERT INTO empleado (codigo_empleado, nombre, apellido1, apellido2, extension, email, codigo_oficina, codigo_jefe, puesto)
+VALUES (32, 'David', 'Lorca', 'Méndez', 1135, 'dlorca@jardineria.com', 'SCT-ES', NULL, 'Director General'); */
+
+SELECT *
+FROM empleado
+WHERE codigo_empleado = 32;
+
+--  20. Borra los pedidos del 2007 o anteriores que hayan sido entregados.
+/* DELETE FROM pedidos
+WHERE YEAR(fecha_pedido) <= 2007 AND estado = 'Entregado'; */
+
+-- Aumenta un 5% el precio de venta de la gama frutales que estén por debajo de los 10€
+/* UPDATE producto
+SET precio_venta = precio_venta * 1.05
+WHERE gama = 'Frutales' AND precio_venta < 10; */
