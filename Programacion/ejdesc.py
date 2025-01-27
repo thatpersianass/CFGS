@@ -1,30 +1,13 @@
-# try:
-#     fichero = open('dir_trab/fichero02.txt','r')
-#     textoaux = fichero.readlines()
-#     for linea in textoaux[:-1]:
-#         print(linea[:-1])
-#     print(textoaux[-1])
-# except:
-#     print('Error al abrir el fichero')
+import os
 
-# else:
-#     print('Fin de la ejecicion')
+path_dir_trabajo = os.path.join(os.getcwd(),"ficheros")
+os.chdir(path_dir_trabajo)
+print(f"La ruta del directorio de trabajo:\n-->{os.getcwd()}")
 
-def contar_numeros_y_letras():
-    nombre_fichero = 'dir_trab/coocoo.txt'
-    try:
-        with open(nombre_fichero, 'r', encoding='utf-8') as archivo:
-            contenido = archivo.read()
+nombre = input('Indique el nombre a buscar: ')
 
-        contador_numeros = sum(1 for c in contenido if c.isdigit())
-        contador_letras = sum(1 for c in contenido if c.isalpha())
-
-        print(f"Cantidad de números: {contador_numeros}")
-        print(f"Cantidad de letras: {contador_letras}")
-
-    except FileNotFoundError:
-        print(f"El fichero '{nombre_fichero}' no existe. Por favor, verifica el nombre y la ruta.")
-    except Exception as e:
-        print(f"Ha ocurrido un error: {e}")
-
-contar_numeros_y_letras()
+if os.path.exists(nombre):
+    if os.path.isdir(nombre):
+        print(f"{nombre} es un archivo.")
+    else:
+        print(f"{nombre} es un directorio.")
