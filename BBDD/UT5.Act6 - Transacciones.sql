@@ -65,9 +65,7 @@ ROLLBACK TO oficina_insertada; */
 /* 3. Borra el cliente y averigua si hubo cambios en las tablas relacionadas */
 
 /* START TRANSACTION;
-DELETE FROM cliente WHERE codigo_empleado_rep_ventas IN (SELECT codigo_empleado FROM empleado WHERE codigo_oficina = 'ALM-ES');
-DELETE FROM empleado WHERE codigo_oficina = 'ALM-ES';
-DELETE FROM oficina WHERE codigo_oficina = 'ALM-ES';
+DELETE FROM cliente WHERE codigo_cliente = 5002;
 COMMIT; */
 
 
