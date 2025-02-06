@@ -6,22 +6,17 @@
     <title>Poia</title>
     <script type="text/javascript" src="tusmuertos.js"></script>
     <style>
-        body {
-            background-color: black;
-            color: white;
-        }
     </style>
 </head>
 <body>
-    <form action="minecraft">
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email">
-        <br/><br/>
-        <label for="tlf">Teléfono</label>
-        <input type="tel" name="tlf" id="tlf">
-        <br><br>
+    <form id="formulario" action="formulario.php" method="GET" onsubmit="validarFormulario(event)">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <br>
+        <label for="telefono">Teléfono (obligatorio):</label>
+        <input type="text" id="telefono" name="telefono" required>
+        <br>
+        <button type="submit">Enviar</button>
     </form>
-    <button onclick="window.alert(lee())">Leer</button>
-    <button onclick="micorreo()">Mi correo</button>
 </body>
 </html>
