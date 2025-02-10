@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poia</title>
-    <script type="text/javascript" src="tusmuertos.js"></script>
+    <title>Document</title>
+    <!-- <script type="text/javascript" src="tusmuertos.js"></script> -->
     <style>
     </style>
 </head>
 <body>
-    <input type="text" id="nombre">
-    <button onclick="mostrarPoia()">Mostrar Poia</button>
+    <p id="texto">Hola mundo</p>
+    <button onclick="mostrarPoia()">Cambiar</button>
+    <script>
+        let coches = ['seat', 'bmw', 'ford', 'byd'];
+        let contador = 0;
+
+        document.getElementById('texto').innerHTML = (coches[contador]);
+
+        function mostrarPoia() {
+            contador++;
+
+            if (contador >= coches.length) {
+                contador = 0;
+            }
+
+            document.getElementById('texto').innerHTML = coches[contador];
+        }
+    </script>
 </body>
 </html>
