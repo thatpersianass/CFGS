@@ -1,71 +1,11 @@
-h1 {
-    color: blue;
-    text-align: center;
-}
-
-.numeros {
-    margin: 5px;
-    gap: 4px;
-    padding: 5px;
-    width: 100%;
-    border: 4px solid;
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-}
-
-.cuadrao {
-    flex-grow: 1;
-    background-color: lightcoral;
-    line-height: 50px;
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    height: 100vh;
+    margin: 0;
 }
 
-@media (orientation:portrait){
-    .cuadrao {
-        background-color: lightblue;
-    }
-}
-
-.grandote {
-    flex-grow: 2;
-}
-
-.tdah {
-    margin: 5px;
-    width: 100%;
-    border: 4px solid black;
-    display: flex;
-    justify-content: space-between;
-    gap: 4px;
-    box-sizing: border-box;
-    font-size: 3rem;
-    padding: 5px;
-}
-
-.tdah div {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightcoral;
-}
-
-.freakybob {
-    background-image: url('./freakybob.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: white !important;
-    background-position: center;
-    border: 1px solid black;
-}
-
-.lista {
-    font-size: 25%;
-    margin: 0px;
-    padding: 0px;
+div {
     text-align: center;
 }
