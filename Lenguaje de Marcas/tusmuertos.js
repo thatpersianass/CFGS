@@ -1,18 +1,48 @@
-// function mostrarPoia() {
-//     document.getElementById('texto').innerHTML = 'Adios mundo cruel';
+// let miPersona = {
+//     nombre: "Juan",
+//     edad: 30,
+//     saludo: function(){
+//         return this.nombre+" tiene "+this.edad+" años";
+//     },
+
+//     sumarEdad: function(){
+//         ++this.edad;
+//     },
+// };
+
+// let persona5 = [miPersona.nombre, miPersona.edad, miPersona.genero];    
+
+// for (let i in persona5) {
+//     window.alert(persona5[i]);
 // }
 
-let coches = ['seat', 'bmw', 'ford', 'byd'];
-let contador = 0;
+// window.alert(miPersona.saludo());
 
-document.getElementById('texto').innerHTML = (coches[contador]);
+// miPersona.sumarEdad();
 
-function mostrarPoia() {
-    contador++; // Aumentar el contador
+// window.alert(miPersona.saludo());
 
-    if (contador >= coches.length) {
-        contador = 0; // Reiniciar el contador si se excede
-    }
+// let a = 7;
+// let x=a;
+// ++x;
 
-    document.getElementById('texto').innerHTML = coches[contador];
+// window.alert(a+""+x);
+
+function persona5(pnombre,pedad,pgenero){
+    this.nombre = pnombre;
+    this.edad = pedad;
+    this.genero = pgenero;
 }
+
+let miPersona = new persona5("Angel",27,"hombre")
+
+let a = new persona5("ana",18,"mujer")
+
+window.alert(miPersona.nombre + " " + miPersona.edad + " " + miPersona.genero);
+window.alert(a.nombre + " " + a.edad + " " + a.genero);
+miPersona.colorPelo="azul";
+window.alert(miPersona.nombre + " " + miPersona.edad + " " + miPersona.genero + "" + miPersona.colorPelo);
+
+delete miPersona.colorPelo;
+
+window.alert(miPersona.nombre + " " + miPersona.edad + " " + miPersona.genero + "" + miPersona.colorPelo);
