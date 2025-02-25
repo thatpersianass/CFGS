@@ -4,28 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="tusmuertos.js"></script>
-    <style>
-    </style>
 </head>
 <body>
-    <p id="texto">Hola mundo</p>
-    <button onclick="mostrarPoia()">Cambiar</button>
+    <p id="info" onclick="resetear()">Hola mundo</p>
+    <button onclick="informar()">Informar</button>
+
+    <input type="text" id="campo" onchange="cambiarColor()">
     <script>
-        let coches = ['seat', 'bmw', 'ford', 'byd'];
-        let contador = 0;
-
-        document.getElementById('texto').innerHTML = (coches[contador]);
-
-        function mostrarPoia() {
-            contador++;
-
-            if (contador >= coches.length) {
-                contador = 0;
-            }
-
-            document.getElementById('texto').innerHTML = coches[contador];
+        const persona = {
+        nombre: "Angel",
+        apellido: "Perez",
+        edad: 52,
+        grupo: "mayor",
+        info: function() {
+        return `${this.nombre} ${this.apellido} tiene ${this.edad} años y pertenece al grupo ${this.grupo}`;
         }
+    };
+
+    function informar() {
+        persona.edad += 5;
+        if (persona.edad < 50) {
+            persona.grupo = "menor";
+        } else if (persona.edad > 70) {
+            persona.grupo = "anciano";
+        } else {
+            persona.grupo = "mayor";
+        }
+        document.getElementById('info').innerHTML = persona.info();
+    }
+
+    function resetear(){
+        persona.edad = 10
+        persona.grupo = "menor";
+        document.getElementById('info').innerHTML = persona.info()
+    }
+
+    function cambiarColor() {
+        document.getElementById('campo').style.backgroundColor = '#ff0000';
+        document.getElementById('campo').style.color = '#ffffff ';
+    }
     </script>
 </body>
 </html>

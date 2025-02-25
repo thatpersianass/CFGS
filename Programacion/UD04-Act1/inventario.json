@@ -1,0 +1,46 @@
+[
+    {
+        "id_producto": 1,
+        "nombre": "Laptop",
+        "precio": 1000.0,
+        "stock": 10,
+        "garantia": 24
+    },
+    {
+        "id_producto": 2,
+        "nombre": "Camisa",
+        "precio": 20.0,
+        "stock": 5,
+        "talla": "M",
+        "material": "Algod\u00f3n"
+    },
+    {
+        "id_producto": 3,
+        "nombre": "Leche",
+        "precio": 1.5,
+        "stock": 15,
+        "fecha_expiracion": "2023-12-01"
+    },
+    {
+        "id_producto": 4,
+        "nombre": "Smartphone",
+        "precio": 500.0,
+        "stock": 15,
+        "garantia": 12
+    },
+    {
+        "id_producto": 5,
+        "nombre": "Pantal\u00f3n",
+        "precio": 30.0,
+        "stock": 8,
+        "talla": "L",
+        "material": "Poli\u00e9ster"
+    },
+    {
+        "id_producto": 6,
+        "nombre": "Pan",
+        "precio": 0.8,
+        "stock": 50,
+        "fecha_expiracion": "2023-10-15"
+    }
+]
