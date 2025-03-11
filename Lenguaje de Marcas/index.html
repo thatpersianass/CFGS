@@ -1,0 +1,69 @@
+<html>
+    <head>
+
+        <title>Problema1a</title>
+
+        <meta charset="utf-8">
+
+    </head>
+    <body>
+        <label>Nombre:</label><p id="texto1"></p>
+        <label>Apellidos:</label><p id="texto2"></p>
+        <label>Edad:</label><p id="texto3"></p>
+
+        <input type="text" id="texto4" placeholder="Introduce tu edad y pulsa INTRO" onkeydown="if (event.keyCode === 13) { calculando(); }">
+
+        <script type="text/javascript">
+            // Crea una clase llamada Persona con tres propiedades:
+
+            // Nombre, Apellidos y Edad y un método rangoEdad sin parámetros que devuelva:
+            //     menor de edad si la edad de la persona es menor a 18 años
+
+            //     adulto joven si la edad de la persona es mayor o igual a 18 años y menor a 30 años
+
+            //     adulto  si la edad de la persona es mayor o igual a 30 años y menor a 65 años
+
+            //     senior si la edad de la persona es mayor o igual a 65 años
+            class Persona {
+                constructor(nombre, apellidos, edad) {
+                    this.nombre = nombre;
+                    this.apellidos = apellidos;
+                    this.edad = edad;
+                }
+
+                rangoEdad() {
+                    if (this.edad < 18) {
+                        return "Menor de edad";
+                    } else if (this.edad >= 18 && this.edad < 30) {
+                        return "Adulto joven";
+                    } else if (this.edad >= 30 && this.edad < 65) {
+                        return "Adulto";
+                    } else {
+                        return "Senior";
+                    }
+                }
+            }
+
+            let persona1 = new Persona("Juan", "García Toledo", 27);
+            let a = persona1.nombre;
+            let b = persona1.apellidos;
+            let c = persona1.edad;
+            let d = persona1.rangoEdad();
+            console.log("Hola "+a+" "+b+". Tienes "+c+" años. Eres "+d);
+
+            function calculando() {
+                let edad = parseInt(document.getElementById("texto4").value);
+                if (isNaN(edad)) {
+                    alert("Por favor, introduce un número válido para la edad.");
+                    return;
+                }
+                
+                let persona = new Persona("Juan", "Pérez", edad);
+                document.getElementById("texto1").innerText = persona.nombre;
+                document.getElementById("texto2").innerText = persona.apellidos;
+                document.getElementById("texto3").innerText = persona.edad;
+                document.getElementById("texto5").innerText = persona.rangoEdad();
+            }
+        </script>
+    </body>
+<html>
