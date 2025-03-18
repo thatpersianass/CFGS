@@ -1,69 +1,111 @@
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightblue;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        div {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        button {
+            color: white;
+            background-color: rgb(103, 103, 243);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+        }
 
-        <title>Problema1a</title>
+        button:hover {
+            background-color: rgb(73, 73, 243);
+        }
 
-        <meta charset="utf-8">
-
-    </head>
-    <body>
-        <label>Nombre:</label><p id="texto1"></p>
-        <label>Apellidos:</label><p id="texto2"></p>
-        <label>Edad:</label><p id="texto3"></p>
-
-        <input type="text" id="texto4" placeholder="Introduce tu edad y pulsa INTRO" onkeydown="if (event.keyCode === 13) { calculando(); }">
+        #feedback {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>INTRODUCE UNA IPV4</h1>
+        <label for="ip">IP: </label>
+        <br>
+        <input type="text" id="ip">
+        <br><br>
+        <label for="mascara">Mascara de Red: </label>
+        <br>
+        <input type="text" id="mascara">
+        <br>
+        <p id="feedback" color="white">XD</p>
+        <button id="enviar" onclick="pulsarBoton()">Enviar</button>
+        <button id="borrar" onclick="borrar()">Borrar</button>
 
         <script type="text/javascript">
-            // Crea una clase llamada Persona con tres propiedades:
-
-            // Nombre, Apellidos y Edad y un método rangoEdad sin parámetros que devuelva:
-            //     menor de edad si la edad de la persona es menor a 18 años
-
-            //     adulto joven si la edad de la persona es mayor o igual a 18 años y menor a 30 años
-
-            //     adulto  si la edad de la persona es mayor o igual a 30 años y menor a 65 años
-
-            //     senior si la edad de la persona es mayor o igual a 65 años
-            class Persona {
-                constructor(nombre, apellidos, edad) {
-                    this.nombre = nombre;
-                    this.apellidos = apellidos;
-                    this.edad = edad;
+            function verificarMask() {
+                let mask = document.getElementById("mascara").value;
+                const mascaras =[255,254,252,248,240,224,192,128,0];
+                const composmask = mask.split('.'); 
+                if (composmask.length !== 4) {
+                    return false;
                 }
-
-                rangoEdad() {
-                    if (this.edad < 18) {
-                        return "Menor de edad";
-                    } else if (this.edad >= 18 && this.edad < 30) {
-                        return "Adulto joven";
-                    } else if (this.edad >= 30 && this.edad < 65) {
-                        return "Adulto";
-                    } else {
-                        return "Senior";
+                for (let i = 0; i < composmask.length; i++) {
+                    if (!mascaras.includes(parseInt(composmask[i]))) {
+                        return false;
+                    }
+                    if (i > 0) {
+                        if (parseInt(composmask[i - 1]) !== 255 && parseInt(composmask[i]) !== 0) {
+                            return false;
+                        }
                     }
                 }
+                return true;
             }
 
-            let persona1 = new Persona("Juan", "García Toledo", 27);
-            let a = persona1.nombre;
-            let b = persona1.apellidos;
-            let c = persona1.edad;
-            let d = persona1.rangoEdad();
-            console.log("Hola "+a+" "+b+". Tienes "+c+" años. Eres "+d);
+            function verificarIP() {
+                let ip = document.getElementById("ip").value;
+                let parts = ip.split('.');
 
-            function calculando() {
-                let edad = parseInt(document.getElementById("texto4").value);
-                if (isNaN(edad)) {
-                    alert("Por favor, introduce un número válido para la edad.");
-                    return;
-                }
                 
-                let persona = new Persona("Juan", "Pérez", edad);
-                document.getElementById("texto1").innerText = persona.nombre;
-                document.getElementById("texto2").innerText = persona.apellidos;
-                document.getElementById("texto3").innerText = persona.edad;
-                document.getElementById("texto5").innerText = persona.rangoEdad();
+            }
+
+            function pulsarBoton() {
+                if (verificarIP() && verificarMask()) {
+                    document.getElementById("feedback").innerHTML = "La IP y la máscara son correctas";
+                    document.getElementById("feedback").style.color = "green";
+                } else if (!(verificarIP()) && !(verificarMask())) {
+                    document.getElementById("feedback").innerHTML = "La IP y la máscara son incorrectas";
+                    document.getElementById("feedback").style.color = "red";
+                }
+                else if (verificarIP() != true) {
+                    document.getElementById("feedback").innerHTML = "La IP es incorrecta";
+                    document.getElementById("feedback").style.color = "red";
+                } else {
+                    document.getElementById("feedback").innerHTML = "La máscara es incorrecta";
+                    document.getElementById("feedback").style.color = "red";
+                }
+            }
+
+            function borrar() {
+                document.getElementById("feedback").innerHTML = "XD";
+                document.getElementById("feedback").style.color = "white";
+                document.getElementById("ip").value = "";
+                document.getElementById("mascara").value = "";
             }
         </script>
-    </body>
-<html>
+    </div>
+</body>
+</html>
