@@ -83,7 +83,7 @@ class Ui_Matriculacion(object):
         
         self.verticalLayoutWidget = QWidget(Matriculacion)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setEnabled(False)
+        self.verticalLayoutWidget.setDisabled(False)
         self.verticalLayoutWidget.setGeometry(QRect(410, 90, 160, 80))
         
         self.vertLay_Sexo = QVBoxLayout(self.verticalLayoutWidget)
@@ -104,7 +104,7 @@ class Ui_Matriculacion(object):
 
         self.verticalLayoutWidget_2 = QWidget(Matriculacion)
         self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setEnabled(False)
+        self.verticalLayoutWidget_2.setDisabled(False)
         self.verticalLayoutWidget_2.setGeometry(QRect(410, 230, 160, 80))
         
         self.vertLay_Situacion = QVBoxLayout(self.verticalLayoutWidget_2)
@@ -126,6 +126,11 @@ class Ui_Matriculacion(object):
         self.lbl_Sexo = QLabel(Matriculacion)
         self.lbl_Sexo.setObjectName(u"lbl_Sexo")
         self.lbl_Sexo.setGeometry(QRect(410, 70, 71, 16))
+        
+        self.lbl_Aviso = QLabel(Matriculacion)
+        self.lbl_Aviso.setObjectName(u"lbl_Aviso")
+        self.lbl_Aviso.setGeometry(QRect(70, 325, 600, 16))
+        self.lbl_Aviso.setVisible(False)
         
         self.lbl_Situacion = QLabel(Matriculacion)
         self.lbl_Situacion.setObjectName(u"lbl_Situacion")
@@ -167,6 +172,7 @@ class Ui_Matriculacion(object):
         self.check_Estudia.setText(QCoreApplication.translate("Matriculacion", u"Estudia", None))
         self.check_Trabaja.setText(QCoreApplication.translate("Matriculacion", u"Trabaja", None))
         self.lbl_Sexo.setText(QCoreApplication.translate("Matriculacion", u"Sexo:", None))
+        self.lbl_Aviso.setText(QCoreApplication.translate("Matriculacion", u"AVISO: Si no desea modificar la matricula, presione el boton Modificar sin cambiar ningun dato", None))
         self.lbl_Situacion.setText(QCoreApplication.translate("Matriculacion", u"Situaci\u00f3n:", None))
         self.btn_Modificar.setText(QCoreApplication.translate("Matriculacion", u"Modificar", None))
         self.btn_Borrar.setText(QCoreApplication.translate("Matriculacion", u"Borrar", None))
