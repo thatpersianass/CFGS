@@ -6,5 +6,8 @@
 !ACTIVIDADES/
 !ACTIVIDADES/*
 
+!EJEMPLOS/
+!EJEMPLOS/*
+
 # Excluir todas las carpetas __pycache__ y su contenido
 **/__pycache__/

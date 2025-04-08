@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLineEdit" name="lnEditNombre">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>60</y>
+     <width>130</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Introduzca el Nombre...</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnEditApellido">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>120</y>
+     <width>190</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Introduzca el Apellido...</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnEditDireccion">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>180</y>
+     <width>380</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Introduzca la Direccion...</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblnombre">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>60</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nombre</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblapellidos">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>120</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Apellidos</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbldireccion">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>180</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Direccion</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnInsertar">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>240</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Insertar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnGrabar">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>240</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Grabar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnReset">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>240</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="txResumen01">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>60</y>
+     <width>150</width>
+     <height>100</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="txResumen02">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>60</y>
+     <width>150</width>
+     <height>100</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
