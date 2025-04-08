@@ -71,7 +71,9 @@ class ClaseVentana(QWidget, Ui_Matriculacion):
 
                 self.lnEdit_Matricula.setEnabled(False)
                 self.btn_Buscar.setEnabled(False)
-
+                
+                self.lbl_Aviso.setVisible(True)
+                
                 return
 
         QMessageBox.information(self, "Resultado", f"No se encontró la matrícula con ID {matricula_id}.")
@@ -227,6 +229,7 @@ class ClaseVentana(QWidget, Ui_Matriculacion):
                     self.lnEdit_Matricula.setEnabled(True)
                     self.btn_Buscar.setEnabled(True)
                     self.nw_matricula = False
+                    self.lbl_Aviso.setVisible(False)
                     return
 
         else:
