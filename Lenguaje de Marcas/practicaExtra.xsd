@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="curso" type="tipocurso"/>
+
+	<xs:complexType name="tipocurso">
+		<xs:sequence>
+			<xs:element name="alumnos" type="xs:positiveInteger"/>
+			<xs:element name="materia" type="tipomateria"/>
+			<xs:element name="horas" type="tipohoras"/>
+			<xs:element name="profesor" type="tipoprofesor"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:length value="3"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	
+	<xs:complexType name="tipomateria">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="obligatoria" default="no">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="si"/>
+							<xs:enumeration value="no"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="tipohoras">
+		<xs:attribute name="total" type="xs:positiveInteger" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="tipopersona">
+		<xs:sequence>
+			<xs:element name="nombre" type="xs:string"/>
+			<xs:element name="apellidos" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tipoprofesor">
+		<xs:complexContent>
+			<xs:extension base="tipopersona">
+				<xs:sequence>
+					<xs:element name="especialidad" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+</xs:schema>
