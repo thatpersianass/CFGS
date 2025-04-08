@@ -1,0 +1,10 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# Ignorar todas las carpetas y su contenido
+/*/
+
+# No ignorar la carpeta ACTIVIDADES y su contenido
+!ACTIVIDADES/
+!ACTIVIDADES/*
+
+# Excluir todas las carpetas __pycache__ y su contenido
+**/__pycache__/
