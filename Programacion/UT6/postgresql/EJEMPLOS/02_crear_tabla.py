@@ -1,32 +1,60 @@
 import psycopg2
 from psycopg2 import Error
-from getpass import getpass
 
-try:
-    # Conectamos a la BD prueba2 con el usuario usrpostgre
-    connection = psycopg2.connect(user="usrpostgre",
-                                password=getpass("Introduzca la contraseña: "),
-                                host="localhost",
-                                port="5432",
-                                database="prueba2")
-    
-    cursor = connection.cursor()
-    query = '''CREATE TABLE mobile
-                (ID INT PRIMARY KEY NOT NULL,
-                MODEL TEXT NOT NULL,
-                PRICE REAL);'''
-    
-    # Ejecutando la consulta
-    cursor.execute(query)
-    # Consolidamos la modificacion de la BD
-    connection.commit()
-    print("La tabla mobile ha sido creada satisfactoriamente")
+def crearTabla(cursor):
+    try:
+        consulta = """
+        CREATE TABLE IF NOT EXISTS usuarios (
+            ID SERIAL PRIMARY KEY,
+            NOMBRE VARCHAR(100),
+            APELLIDOS VARCHAR(100),
+            NIF VARCHAR(20),
+            USERNAME VARCHAR(50) UNIQUE,
+            CONTRASENYA VARCHAR(255)
+        );
+        """
+        
+        # Imprime la consulta antes de ejecutarla para verificar
+        print("Ejecutando consulta para crear tabla:")
+        print(consulta)
 
-except (Exception, Error) as error:
-    print("Error... al intentar conectar con PostgreSQL", error)
+        cursor.execute(consulta)  # Ejecuta la consulta SQL
+        print("Tabla 'usuarios' creada o ya existe.")
 
-finally:
-    if (connection):
-        # cursor.close()
-        connection.close()
-        print("La conexión con PostgreSQL está cerrada")
+    except Exception as e:
+        print(f"Error al crear la tabla: {e}")
+
+def main():
+    try:
+        # Conexión a la base de datos
+        conexion = psycopg2.connect(user="usrpostgre",  # Reemplaza con tu usuario
+                                     password="usrpostgre",  # Reemplaza con tu contraseña
+                                     host="localhost",
+                                     port="5432",
+                                     database="usuarios")  # Nombre de la base de datos
+
+        cursor = conexion.cursor()
+
+        # Verifica la base de datos a la que estás conectado
+        db_name = conexion.get_dsn_parameters()['dbname']
+        print(f"Conectado a la base de datos: {db_name}")
+
+        # Verifica que estés conectado a la base de datos correcta
+        if db_name != 'usuarios':
+            print(f"¡Error! Estás conectado a la base de datos {db_name}, pero se esperaba 'usuarios'.")
+            return
+
+        # Llama a la función para crear la tabla
+        crearTabla(cursor)
+
+    except (Exception, Error) as error:
+        print("Error... al intentar conectar con PostgreSQL:", error)
+
+    finally:
+        if conexion:
+            conexion.close()
+            print("\nCerrando conexión con BD")
+            print('Finalizando el programa\n')
+
+if __name__ == '__main__':
+    main()
