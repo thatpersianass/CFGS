@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="factura.xsl"?>
+<factura>
+    <numero>FAC2023A112</numero>
+    <fecha>2023-12-15</fecha>
+
+    <emisor>
+        <cif>B38783890</cif>
+        <nombre>Valme Ingenieros, S.L.</nombre>
+    </emisor>
+
+    <receptor>
+        <cif>B83262329</cif>
+        <nombre>Riello Enerdata, S.L.</nombre>
+    </receptor>
+
+    <detalle>
+        <item>
+            <concepto>Servicios de actualización de sistema de comunicaciones vocales</concepto>
+            <unidades>1</unidades>
+            <precio>3000.00</precio>
+            <subtotal>3000.00</subtotal>
+        </item>
+        <item>
+            <concepto>1x Switch Grandstream de 24 puertos 10/100/1000 PoE 2x AP GNW2324 de Grandstream wifi6 IEEE802.11ax</concepto>
+            <unidades>2</unidades>
+            <precio>1000.00</precio>
+            <subtotal>2000.00</subtotal>
+        </item>
+    </detalle>
+
+    <neto>5000.00</neto>
+    <igic porcentaje="7.00">350.00</igic>
+    <total>5350.00</total>
+
+    <iban>ES1121000200012345678912</iban>
+</factura>

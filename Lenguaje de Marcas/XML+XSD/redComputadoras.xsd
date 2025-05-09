@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="TcapaOsi">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Track">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sí"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Twifisec">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="abierta"/>
+      <xs:enumeration value="wpa2"/>
+      <xs:enumeration value="wpa3"/>
+      <xs:enumeration value="wpa2-psk"/>
+      <xs:enumeration value="wpa3-psk"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Tipv4">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\d{1,3}\.){3}\d{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="redComputadoras">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DISPOSITIVO" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TIPO" minOccurs="1">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_rackable" type="Track" use="required"/>
+                </xs:complexType>
+              </xs:element>
+
+              <xs:element name="UBICACIÓN" minOccurs="1">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_oficina" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+
+              <xs:element name="otros_datos" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NIVEL_OSI" minOccurs="1" type="xs:string"/>
+                    <xs:element name="PROTOCOLO" minOccurs="0" maxOccurs="10">
+                      <xs:complexType mixed="true">
+                        <xs:attribute name="_capa" type="TcapaOsi" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="puertos" minOccurs="0">
+                      <xs:complexType mixed="true">
+                        <xs:attribute name="vel" type="xs:string" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ip_gestión" minOccurs="0" type="Tipv4"/>
+                    <xs:element name="wifi" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SSID" minOccurs="0">
+                            <xs:complexType mixed="true">
+                              <xs:attribute name="_seguridad" type="Twifisec" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="psk" minOccurs="0">
+                            <xs:complexType mixed="true">
+                              <xs:attribute name="qr" type="xs:string" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

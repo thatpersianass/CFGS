@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<redComputadoras xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="redComputadoras.xsd">
+    <DISPOSITIVO>
+        <TIPO _rackable="sí">switch Ethernet</TIPO>
+        <UBICACIÓN _oficina="Icod de los Vinos">CPD principal</UBICACIÓN>
+        <otros_datos>
+            <NIVEL_OSI>Enlace de Datos</NIVEL_OSI>
+            <PROTOCOLO _capa="2">Ethernet 10/100/1000BaseT</PROTOCOLO>
+            <puertos vel="10/100/1000">24</puertos>
+            <ip_gestión>192.168.1.21</ip_gestión>
+        </otros_datos>
+    </DISPOSITIVO>
+    <DISPOSITIVO>
+        <TIPO _rackable="no">router</TIPO>
+        <UBICACIÓN _oficina="Icod de los Vinos">CPD principal</UBICACIÓN>
+        <otros_datos>
+            <NIVEL_OSI>Red</NIVEL_OSI>
+            <PROTOCOLO _capa="2">Ethernet 10/100/1000BaseT</PROTOCOLO>
+            <PROTOCOLO _capa="3">IPv4</PROTOCOLO>
+            <puertos vel="10/100/1000">2</puertos>
+            <ip_gestión>192.168.1.1</ip_gestión>
+        </otros_datos>
+    </DISPOSITIVO>
+    <DISPOSITIVO>
+        <TIPO _rackable="no">access point</TIPO>
+        <UBICACIÓN _oficina="Icod de los Vinos">Sala de reuniones</UBICACIÓN>
+        <otros_datos>
+            <NIVEL_OSI>Enlace de datos</NIVEL_OSI>
+            <PROTOCOLO _capa="2">Ethernet 10/100/1000BaseT</PROTOCOLO>
+            <puertos vel="10/100/1000">2</puertos>
+            <wifi>
+                <SSID _seguridad="wpa3-psk">oficinaIcod</SSID>
+                <psk qr="no">12345678ABCD</psk>
+            </wifi>
+            <ip_gestión>192.168.1.22</ip_gestión>
+        </otros_datos>
+    </DISPOSITIVO>
+</redComputadoras>

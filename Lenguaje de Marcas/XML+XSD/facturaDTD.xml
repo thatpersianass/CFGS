@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Factura [
+  <!ELEMENT Factura (Cabecera, Emisor, Receptor, Detalles, Total, MediosPago?, Notas?)>
+  <!ATTLIST Factura 
+      id ID #REQUIRED
+      version CDATA #REQUIRED
+  >
+  <!ELEMENT Cabecera (Numero, Fecha, Hora?)>
+  <!ELEMENT Numero (#PCDATA)>
+  <!ELEMENT Fecha (#PCDATA)>
+  <!ELEMENT Hora (#PCDATA)>
+  <!ELEMENT Emisor (Nombre, NIF, Direccion, Telefono?)>
+  <!ELEMENT Receptor (Nombre, NIF, Direccion, Telefono?)>
+  <!ELEMENT Nombre (#PCDATA)>
+  <!ELEMENT NIF (#PCDATA)>
+  <!ELEMENT Direccion (#PCDATA)>
+  <!ELEMENT Telefono (#PCDATA)>
+  <!ELEMENT Detalles (Item+)>
+  <!ELEMENT Item (Descripcion, Cantidad, PrecioUnitario, Descuento?, Importe)>
+
+  <!ELEMENT Descripcion (#PCDATA)>
+  <!ELEMENT Cantidad (#PCDATA)>
+  <!ELEMENT PrecioUnitario (#PCDATA)>
+  <!ELEMENT Descuento (#PCDATA)>
+  <!ELEMENT Importe (#PCDATA)>
+  <!ATTLIST Importe 
+      tax (incluido | igic | iva) "incluido"
+      taxrate (0 | 5 | 7 | 15 | 21) "0"
+      impuestos CDATA "0"
+  >
+  <!ELEMENT Total (#PCDATA)>
+  <!ATTLIST Total 
+      taxes CDATA "0"
+  >
+  <!ELEMENT MediosPago (MedioPago+)>
+  <!ELEMENT MedioPago (Tipo)>
+  <!ELEMENT Tipo (#PCDATA)>
+  <!ATTLIST Tipo 
+      iban CDATA #IMPLIED
+  >
+  <!ELEMENT Notas (#PCDATA)>
+]>
+
+<Factura id="FAC2024-001" version="v1.0">
+
+    <Cabecera>
+        <Numero>FAC2024-001</Numero>
+        <Fecha>2024-04-26</Fecha>
+        <Hora>15:30</Hora>
+    </Cabecera>
+
+    <Emisor>
+        <Nombre>Empresa Ejemplo S.L.</Nombre>
+        <NIF>B12345678</NIF>
+        <Direccion>Calle Ejemplo, 123, Tenerife</Direccion>
+        <Telefono>922123456</Telefono>
+    </Emisor>
+
+    <Receptor>
+        <Nombre>Cliente Prueba S.A.</Nombre>
+        <NIF>A87654321</NIF>
+        <Direccion>Avenida de las Flores, 45, Tenerife</Direccion>
+    </Receptor>
+
+    <Detalles>
+        <Item>
+            <Descripcion>Servicio de instalación de redes</Descripcion>
+            <Cantidad>1</Cantidad>
+            <PrecioUnitario>3000.00</PrecioUnitario>
+            <Importe tax="igic" taxrate="7" impuestos="210.00">3210.00</Importe>
+        </Item>
+        <Item>
+            <Descripcion>Mantenimiento anual</Descripcion>
+            <Cantidad>1</Cantidad>
+            <PrecioUnitario>500.00</PrecioUnitario>
+            <Descuento>10%</Descuento>
+            <Importe tax="iva" taxrate="21" impuestos="105.00">595.00</Importe>
+        </Item>
+    </Detalles>
+
+    <Total taxes="315.00">3805.00</Total>
+
+    <MediosPago>
+        <MedioPago>
+            <Tipo iban="ES7620770024003102575766">transferencia</Tipo>
+        </MedioPago>
+        <MedioPago>
+            <Tipo>efectivo</Tipo>
+        </MedioPago>
+    </MediosPago>
+
+    <Notas>Factura pagada parcialmente. Restan 1000€.</Notas>
+
+</Factura>
